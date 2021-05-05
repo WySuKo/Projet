@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bb7a1715-7d19-4d6a-9797-afeb3f9c08b8" name="Projet BPO" url="https://github.com/WySuKo/Projet-BPO---Final-Echec.git">
+        <fileTransfer accessType="LOCAL" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
