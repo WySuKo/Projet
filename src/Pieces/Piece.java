@@ -11,6 +11,7 @@ public class Piece {
     public char getCaractere(){
         return caractere;
     }
+    //Comentaire test
 }
 
 
