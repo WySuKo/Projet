@@ -1,0 +1,8 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ğ´öŠûÿÿÿÿ
+A
+java:S1659"Declare "y" on a separate line.(±šß¯ùÿÿÿÿ8ş½ß•/
+T
+java:S5993"9Change the visibility of this constructor to "protected".(Ü¢®¹úÿÿÿÿ
+^
+java:S1126."AReplace this if-then-else statement by a single return statement.(ùÿª¬8´˜éß•/

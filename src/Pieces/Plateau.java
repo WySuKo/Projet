@@ -1,19 +1,32 @@
 package Pieces;
 
 public class Plateau {
-    private Piece plateau [][];
+    public Piece[][] getPlateau() {
+        return plateau;
+    }
+
+    private Piece[][] plateau;
     public static final char[] lettres = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-    private static final int taille = 8;
+    public static final int TAILLE = 8;
 
     public Plateau(){
-        this.plateau = new Piece [taille][taille];
+        this.plateau = new Piece [TAILLE][TAILLE];
     }
 
-    public void ajoutPiece(Piece piece,int x,int y){
-        plateau[x][y] =  piece;
+    public void ajouterPiece(Piece piece){
+        plateau[piece.getX()][piece.getY()] =  piece;
     }
 
+    public void deplacerPiece(Piece piece, int x, int y)
+    {
+        if(!piece.deplacable(x, y, this))
+            return;
 
+        plateau[piece.getX()][piece.getY()] = null;
+        plateau[x][y] = piece;
+        piece.setX(x);
+        piece.setY(y);
+    }
 
     private String genererLigne(){
         return "   " +
