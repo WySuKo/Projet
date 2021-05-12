@@ -2,7 +2,7 @@ package Pieces;
 
 public class Roi extends Piece{
 
-    public Roi(PieceCouleur couleur, int x, int y){
+    public Roi(Couleur couleur, int x, int y){
         super(couleur,'r', x, y);
     }
 

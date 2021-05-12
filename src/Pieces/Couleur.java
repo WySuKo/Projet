@@ -1,5 +1,5 @@
 package Pieces;
 
-public enum PieceCouleur {
+public enum Couleur {
     NOIRE,BLANC
 }

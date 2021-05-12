@@ -2,14 +2,14 @@ package Pieces;
 
 public abstract class Piece {
     private char caractere;
-    private PieceCouleur couleur;
+    private Couleur couleur;
     private int x, y;
 
-    public Piece(PieceCouleur couleur, char caractere, int x, int y){
+    public Piece(Couleur couleur, char caractere, int x, int y){
         this.x = x;
         this.y = y;
         this.couleur = couleur;
-        this.caractere = couleur == PieceCouleur.BLANC? Character.toUpperCase(caractere):caractere;
+        this.caractere = couleur == Couleur.BLANC? Character.toUpperCase(caractere):caractere;
     }
 
     public int getX() {
@@ -32,7 +32,7 @@ public abstract class Piece {
         return caractere;
     }
 
-    public PieceCouleur getCouleur() {
+    public Couleur getCouleur() {
         return couleur;
     }
 

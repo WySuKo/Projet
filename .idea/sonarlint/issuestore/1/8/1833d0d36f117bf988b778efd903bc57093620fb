@@ -1,0 +1,7 @@
+
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô¸™å
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô¸™å
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ð´öŠûÿÿÿÿ
+q	java:S116"WRename this field "joueur_blanc" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€½ŽÔùÿÿÿÿ
+p	java:S116"VRename this field "joueur_noir" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ïªòÿÿÿÿÿ
+l	java:S116"WRename this field "joueur_actif" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªá¾ì

@@ -17,15 +17,17 @@ public class Plateau {
         plateau[piece.getX()][piece.getY()] =  piece;
     }
 
-    public void deplacerPiece(Piece piece, int x, int y)
+    public boolean deplacerPiece(Piece piece, int x, int y)
     {
         if(!piece.deplacable(x, y, this))
-            return;
+            return false;
 
         plateau[piece.getX()][piece.getY()] = null;
         plateau[x][y] = piece;
         piece.setX(x);
         piece.setY(y);
+
+        return true;
     }
 
     private String genererLigne(){

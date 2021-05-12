@@ -5,12 +5,12 @@ java:S1700"Rename field "plateau"(ÁÊ„Ûùÿÿÿÿ
 8
 java:S2386	"Make this member "protected".(ßÜ‰×ÿÿÿÿÿ
 D
-java:S6212%"/Declare this local variable with "var" instead.(²ğï
+java:S6212'"/Declare this local variable with "var" instead.(²ğï
 J
-java:S6212'"/Declare this local variable with "var" instead.(ˆ“É·ùÿÿÿÿ
+java:S6212)"/Declare this local variable with "var" instead.(ˆ“É·ùÿÿÿÿ
 E
-java:S6212+"/Declare this local variable with "var" instead.(ÀŞù
+java:S6212-"/Declare this local variable with "var" instead.(ÀŞù
 J
-java:S6212."/Declare this local variable with "var" instead.(¯š¸Ôıÿÿÿÿ
+java:S62120"/Declare this local variable with "var" instead.(¯š¸Ôıÿÿÿÿ
 J
-java:S62126"/Declare this local variable with "var" instead.(ˆ“É·ùÿÿÿÿ
+java:S62128"/Declare this local variable with "var" instead.(ˆ“É·ùÿÿÿÿ

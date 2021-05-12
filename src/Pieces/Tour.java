@@ -1,7 +1,7 @@
 package Pieces;
 // Test de Push sur git
 public class Tour extends Piece{
-    public Tour(PieceCouleur couleur, int x, int y){
+    public Tour(Couleur couleur, int x, int y){
         super(couleur,'t', x, y);
     }
 
