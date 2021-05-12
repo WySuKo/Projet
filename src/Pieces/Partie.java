@@ -8,11 +8,13 @@ public class Partie {
     }
 
     private Plateau plateau;
+    private Pattern patternFormatInput;
     private IJoueur joueur_blanc;
     private IJoueur joueur_noir;
     private IJoueur joueur_actif;
 
     public Partie(IJoueur joueur_blanc, IJoueur joueur_noir){
+        this.patternFormatInput = Pattern.compile("([a-h][1-8]){2}");
         this.joueur_blanc = joueur_blanc;
         this.joueur_noir = joueur_noir;
         this.joueur_actif = joueur_blanc;
@@ -25,7 +27,7 @@ public class Partie {
     }
 
     private boolean formatCoupValide(String coup){
-        return Pattern.matches("([a-h][1-8]){2}", coup);
+        return patternFormatInput.matcher(coup).matches(); //matches renvoie true que si TOUTE la chaîne match la regex
     }
 
     public boolean jouerCoup(){
@@ -37,11 +39,12 @@ public class Partie {
 
         // transformation
         if(!formatCoupValide(coup)) return false;
-        int yDepart = (int)coup.charAt(0) - 97;
-        int xDepart = Math.abs(Integer.parseInt(coup.substring(1, 2)) - 8);
 
+        int xDepart = -Integer.parseInt(coup.substring(1, 2)) + 8;
+        int yDepart = (int)coup.charAt(0) - 97;
+
+        int xArrivee = -Integer.parseInt(coup.substring(3)) + 8;
         int yArrivee = (int)coup.charAt(2) - 97;
-        int xArrivee = Math.abs(Integer.parseInt(coup.substring(3)) - 8);
 
         //envoi dans le plateau
         Piece p = plateau.getPlateau()[xDepart][yDepart];
