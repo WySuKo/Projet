@@ -1,8 +1,8 @@
 package Pieces;
 
 public abstract class Piece {
-    private char caractere;
-    private Couleur couleur;
+    private final char caractere;
+    private final Couleur couleur;
     private int x, y;
 
     public Piece(Couleur couleur, char caractere, int x, int y){
@@ -12,27 +12,27 @@ public abstract class Piece {
         this.caractere = couleur == Couleur.BLANC? Character.toUpperCase(caractere):caractere;
     }
 
-    public int getX() {
+    public final int getX() {
         return x;
     }
 
-    public int getY() {
+    public final int getY() {
         return y;
     }
 
-    public void setX(int x) {
+    public final void setX(int x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public final void setY(int y) {
         this.y = y;
     }
 
-    public char getCaractere(){
+    public final char getCaractere(){
         return caractere;
     }
 
-    public Couleur getCouleur() {
+    public final Couleur getCouleur() {
         return couleur;
     }
 
@@ -48,7 +48,6 @@ public abstract class Piece {
 
         return true;
     }
-    //Comentaire test
 }
 
 

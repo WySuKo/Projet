@@ -33,7 +33,7 @@ public class Partie {
     public boolean jouerCoup(){
         String coup = joueur_actif.obtenirCoup();
         if(coup.equals("quit"))
-            System.exit(0);
+            System.exit(0); //faire qqch de mieux ici
         //format valide
         // "a2b7" -> 4 caractères de long; 1er et 3e carac entre a et h; 2e et 4e chiffre entre 1 et 8
 

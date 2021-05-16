@@ -1,8 +1,4 @@
 
-C
-src/Pieces/Roi.java,3\3\3318eea1dd2a8b864140b918dbbffb2f38f96ad5
-G
-src/Pieces/Plateau.java,9\a\9a32d5e2bcbc1787ef961ac527e76c056a8add8b
 G
 src/Pieces/IJoueur.java,a\b\ab81341b7b964e691e2d6aaf779639cb1e467137
 F
@@ -11,13 +7,19 @@ H
 src/Pieces/JoueurAI.java,2\1\21cfe17db4e67f782c587fd9b08423eee87ff8af
 L
 src/Pieces/JoueurHumain.java,1\d\1d638a985eeecf04c074e800853744d99983253d
-D
-src/Pieces/Tour.java,a\4\a4a36ae02a31b745acebb0c728da440bc0bb7e00
+G
+src/Pieces/Couleur.java,0\8\084172392706d5b4dbc4c6cd1ebe295e6111c2cf
+F
+src/Pieces/Partie.java,1\8\1833d0d36f117bf988b778efd903bc57093620fb
 E
 src/Pieces/Piece.java,0\f\0f9f1036436f805e58b5a9f9d561ad0bd2ac9337
 G
-src/Pieces/Couleur.java,0\8\084172392706d5b4dbc4c6cd1ebe295e6111c2cf
+src/Pieces/Plateau.java,9\a\9a32d5e2bcbc1787ef961ac527e76c056a8add8b
+C
+src/Pieces/Roi.java,3\3\3318eea1dd2a8b864140b918dbbffb2f38f96ad5
+D
+src/Pieces/Tour.java,a\4\a4a36ae02a31b745acebb0c728da440bc0bb7e00
 D
 src/Pieces/Main.java,0\3\0322de98f0afe3b10c2ef5bbd8367afb4f55da18
-F
-src/Pieces/Partie.java,1\8\1833d0d36f117bf988b778efd903bc57093620fb
+H
+src/Pieces/Cavalier.java,f\6\f67a73e30cc9c43c4b549d8dac80a4e8f3efbddb
