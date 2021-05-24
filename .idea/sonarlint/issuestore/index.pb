@@ -1,33 +1,73 @@
 
+b
+2src/bpo2/echecs/exceptions/ErreurJeuException.java,e/b/eb07fdb69bb23f6451be70bc3a409c6823117dcd
+e
+5src/bpo2/echecs/exceptions/CaseInvalideException.java,b/e/be069fcb2d114f7955912a71294ab8d82055502f
+k
+;src/bpo2/echecs/exceptions/FormatCoupInvalideException.java,d/e/deda6ed4c34e7d023784bdad5a7945fc866f82dc
+k
+;src/bpo2/echecs/exceptions/PieceNonDeplacableException.java,5/a/5afeef340131103afbad5ea1a77456cada1e5e73
+h
+8src/bpo2/echecs/exceptions/PieceNonTrouveeException.java,0/5/05539b42f99d407287b30299866d9d161c7af632
 \
 ,src/bpo2/echecs/joueurs/CategorieJoueur.java,d/5/d530b376f6cb43ecd5019bda8ee2f86f61eda03b
-[
-+src/bpo2/echecs/joueurs/FabriqueJoueur.java,d/d/ddbdea55e45cabc6a43716809d1551bc5b278989
-S
-#src/bpo2/echecs/joueurs/Joueur.java,a/4/a4b01828469214c4aade460a95a1e5448e66de11
-]
--src/bpo2/echecs/tests/TestCreationJoueur.java,5/3/531ecdb09e8c5f686ba464f537c9bf9ef2d6f6dc
-T
-$src/bpo2/echecs/tests/TestCases.java,8/8/88a732653738335734ae5ad0469359c6db0cb5b8
-Y
-)src/bpo2/echecs/joueurs/JoueurHumain.java,f/b/fb5da60da8ac4a2c676b32aed2f0d824bd15691f
 T
 $src/bpo2/echecs/pieces/Cavalier.java,a/4/a4777dbc9ef653244a54e58f88e557dcaaa39a8c
-O
-src/bpo2/echecs/jeu/IPiece.java,3/8/381a4c8aa96aa2944b0149d8fee38e8d5797907b
-P
- src/bpo2/echecs/jeu/IJoueur.java,0/8/08a6f753c83ee96ba1c38e21f40868204f0c6fa5
-U
-%src/bpo2/echecs/jeu/CouleurPiece.java,5/c/5c8670d3896463384c3442fd4f1e3117dd63b4a5
-X
-(src/bpo2/echecs/jeu/IFabriqueJoueur.java,c/f/cf1c91a4f4b0c20e5adfb08245ec7a042d37a344
 O
 src/bpo2/echecs/pieces/Roi.java,d/0/d023efa07b753252a30db7ad09564105f5fc921d
 Q
 !src/bpo2/echecs/pieces/Piece.java,5/e/5eb680c80c940dab1179c8d79c899928f2647eb9
-^
-.src/bpo2/echecs/tests/testDeplacementsRoi.java,4/0/407f4479d6ae4ed56bf5e4631c8f9a6c58ef2eca
+]
+-src/bpo2/echecs/tests/TestCreationJoueur.java,5/3/531ecdb09e8c5f686ba464f537c9bf9ef2d6f6dc
 Y
 )src/bpo2/echecs/tests/TestEchecAuRoi.java,7/b/7bd7b84d61b245af13d4d68bea9e503bd9bbe593
 U
+%src/bpo2/echecs/tests/TestPieces.java,5/2/5218bbbfe5ed08c363716def73d4edf41f863541
+T
+$src/bpo2/echecs/tests/TestCases.java,8/8/88a732653738335734ae5ad0469359c6db0cb5b8
+O
+src/bpo2/echecs/jeu/IPiece.java,3/8/381a4c8aa96aa2944b0149d8fee38e8d5797907b
+X
+(src/bpo2/echecs/jeu/IFabriqueJoueur.java,c/f/cf1c91a4f4b0c20e5adfb08245ec7a042d37a344
+P
+ src/bpo2/echecs/pieces/Tour.java,c/8/c8d8191b1dd9a66078e1d38ed852bb06db2c86b5
+_
+/src/bpo2/echecs/tests/TestDeplacementsTour.java,8/9/890da0ac8a390ac87cf74e0d491f430b8107ba9b
+^
+.src/bpo2/echecs/tests/TestDeplacementsRoi.java,d/9/d996c2124a4c9ba59fc3a343ae2bbd29ed9b222a
+c
+3src/bpo2/echecs/tests/TestDeplacementsCavalier.java,b/f/bf22fc58e05d3fe195f838713ec49f87d61a8e0a
+P
+ src/bpo2/echecs/jeu/Plateau.java,f/3/f3852f520ede92d0237c4cc33fcd6c3f28b135cb
+M
+src/bpo2/echecs/jeu/Case.java,8/f/8f0ced35ca99bb665e23e99def148e5b1366df66
+L
+Projet BPO - Final Echec.iml,0/c/0cfc6bb44885fcbb6b40f1ad8b187f7aafc782fc
+P
+ src/bpo2/echecs/jeu/IJoueur.java,0/8/08a6f753c83ee96ba1c38e21f40868204f0c6fa5
+Y
+)src/bpo2/echecs/joueurs/JoueurHumain.java,f/b/fb5da60da8ac4a2c676b32aed2f0d824bd15691f
+S
+#src/bpo2/echecs/joueurs/Joueur.java,a/4/a4b01828469214c4aade460a95a1e5448e66de11
+U
 %src/bpo2/echecs/joueurs/JoueurAI.java,8/4/84092e4b660ab870abe035cd60e384243a1d7b6a
+[
++src/bpo2/echecs/joueurs/FabriqueJoueur.java,d/d/ddbdea55e45cabc6a43716809d1551bc5b278989
+P
+ src/bpo2/echecs/jeu/Couleur.java,7/2/7221a04151ad2dbe447a4849761b68861bcb70fa
+U
+%src/bpo2/echecs/pieces/TypePiece.java,a/4/a4afd6e4ebae84888c67d72562b027c4fb437119
+W
+'src/bpo2/echecs/jeu/IFabriquePiece.java,0/f/0f468cd196b69c8737f273d9b51191ae39197abb
+l
+<src/bpo2/echecs/exceptions/CreationRoiInvalideException.java,e/9/e9cf0f449f18b24f6a8d37b10d82fe30a9c174fe
+B
+src/bpo2/Main.java,6/a/6ab757e9348c3fa74a876b8ebc61fa8f2b0f1fb0
+Y
+)src/bpo2/echecs/pieces/FabriquePiece.java,8/2/82bdfea7978da67b520f79e781d43f7df410dd61
+O
+src/bpo2/echecs/jeu/Partie.java,3/c/3cd72bb9af158737d705babf4f65e93796c76573
+]
+-src/bpo2/echecs/tests/TestCreationPieces.java,6/4/6400bec23efea4720c3e53fd0bb333b2d294d3db
+V
+&src/bpo2/echecs/tests/TestPlateau.java,6/e/6eff162e9f8c118a828f9ea11986c7fdd746593c

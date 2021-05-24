@@ -1,14 +1,13 @@
 package bpo2;
 
+import bpo2.echecs.exceptions.CaseInvalideException;
+import bpo2.echecs.exceptions.CreationRoiInvalideException;
 import bpo2.echecs.jeu.Case;
 import bpo2.echecs.jeu.Partie;
 import bpo2.echecs.joueurs.CategorieJoueur;
 import bpo2.echecs.joueurs.FabriqueJoueur;
-import bpo2.echecs.pieces.Cavalier;
-import bpo2.echecs.jeu.CouleurPiece;
-import bpo2.echecs.pieces.Piece;
-import bpo2.echecs.pieces.Roi;
-import bpo2.echecs.pieces.Tour;
+import bpo2.echecs.pieces.*;
+import bpo2.echecs.jeu.Couleur;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -34,12 +33,14 @@ public class Main {
         String choix;
 
         do{
-            System.out.print("> ");
+            System.out.print("Veuillez entrer votre choix pour démarrer la partie: ");
             choix = scanner.nextLine().trim();
             System.out.println();
 
             if(choix.equals("4")){
-                ;
+                System.out.println("Bienvenue dans notre jeu d'échecs ! Pour déplacer une pièce, utilisez le format convenu dans le sujet.\n" +
+                        "Ecrivez \"nulle\" pour proposer une partie nulle à votre adversaire. Celui-ci devra écrire la même chose durant le tour suivant" +
+                        "pour que la partie s'arrête.\nEcrivez \"abandon\" pour abandonner la partie.\n");
             }
         }while(!contient(options, choix));
 
@@ -57,33 +58,33 @@ public class Main {
                 break;
         }
 
-        Partie partie = new Partie(new FabriqueJoueur(categorieJoueur1, categorieJoueur2));
-        ArrayList<Piece> pieces = new ArrayList<>();
-
-        pieces.add(new Tour(CouleurPiece.BLANC, new Case(2, 2)));
-        pieces.add(new Cavalier(CouleurPiece.BLANC, new Case(5, 7)));
-        pieces.add(new Roi(CouleurPiece.NOIRE, new Case(1, 6)));
-        pieces.add(new Tour(CouleurPiece.NOIRE, new Case(3, 3)));
-        pieces.add(new Roi(CouleurPiece.BLANC, new Case(4, 1)));
-        pieces.add(new Cavalier(CouleurPiece.NOIRE, new Case(1, 2)));
-
-        for(Piece piece : pieces)
-            partie.ajouterPiece(piece);
+        Partie partie = null;
+        try{
+             partie = new Partie(new FabriqueJoueur(categorieJoueur1, categorieJoueur2), new FabriquePiece());
+        }catch (CreationRoiInvalideException e){
+            System.out.println(e);
+            //Avoir plus de 2 rois est invalide, donc on quitte le jeu
+            System.exit(0);
+        }
 
         while(partie.peutContinuer()){
             System.out.println(partie.getPlateau());
-            System.out.print("> ");
-            while(!partie.jouerCoup()) {
-                System.out.print("> ");
+            try{
+                partie.jouerCoup();
+            }catch (Exception e){
+                System.out.println(e);
             }
         }
-
+        //La partie s'est terminée
         if(partie.abandonnee()){
             String joueurPerdant = partie.getJoueurActif() == partie.getJoueurBlanc()? "Blanc" : "Noir";
             System.out.println("Le joueur " + joueurPerdant + " a abandonné la partie !");
         }
         if(partie.propositionNulleAcceptee()){
             System.out.println("La partie est déclarée nulle par les deux joueurs !");
+        }
+        if(partie.getNombreTours() == 300){
+            System.out.println("Egalité, la partie se termine car elle dure trop longtemps !");
         }
     }
 }

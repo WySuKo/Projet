@@ -1,14 +1,14 @@
 package bpo2.echecs.pieces;
 
 import bpo2.echecs.jeu.Case;
-import bpo2.echecs.jeu.CouleurPiece;
+import bpo2.echecs.jeu.Couleur;
 import bpo2.echecs.jeu.IPiece;
 import bpo2.echecs.jeu.Plateau;
 
 import java.util.ArrayList;
 
 public class Cavalier extends Piece {
-    public Cavalier(CouleurPiece couleur, Case caseDepart) {
+    public Cavalier(Couleur couleur, Case caseDepart) {
         super(couleur, 'c', caseDepart);
     }
 

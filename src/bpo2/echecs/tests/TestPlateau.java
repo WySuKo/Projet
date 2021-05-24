@@ -1,12 +1,18 @@
 package bpo2.echecs.tests;
 
+import bpo2.echecs.exceptions.CaseInvalideException;
+import bpo2.echecs.exceptions.ErreurJeuException;
+import bpo2.echecs.exceptions.PieceNonDeplacableException;
 import bpo2.echecs.jeu.Case;
-import bpo2.echecs.jeu.CouleurPiece;
+import bpo2.echecs.jeu.Couleur;
 import bpo2.echecs.jeu.IPiece;
 import bpo2.echecs.jeu.Plateau;
+import bpo2.echecs.pieces.Cavalier;
 import bpo2.echecs.pieces.Roi;
 import bpo2.echecs.pieces.Tour;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +30,7 @@ public class TestPlateau {
     @Test
     public void testAjoutPiece(){
         Plateau plateau = new Plateau();
-        Roi roi = new Roi(CouleurPiece.BLANC, new Case(2, 2));
+        Roi roi = new Roi(Couleur.BLANC, new Case(2, 2));
         plateau.ajouterPiece(roi);
 
         assertEquals(plateau.getPiece(roi.getPosition()), roi);
@@ -32,14 +38,8 @@ public class TestPlateau {
     }
 
     @Test
-    public void testSuppressionPiece(){
+    public void testDeplacementPiece(){
         Plateau plateau = new Plateau();
-        Roi roi = new Roi(CouleurPiece.BLANC, new Case(2, 2));
-        plateau.ajouterPiece(roi);
-        plateau.retirerPiece(roi.getPosition());
-
-        assertNull(plateau.getPiece(roi.getPosition()));
-        assertFalse(plateau.caseOccupee(roi.getPosition()));
     }
 
     @Test
@@ -85,16 +85,16 @@ public class TestPlateau {
                 "1 |   |   |   | T |   |   | r |   | 1\n" +
                 "   --- --- --- --- --- --- --- ---\n" +
                 "    a   b   c   d   e   f   g   h\n");
-
-        plateau.retirerPiece(new Case(1, 6));
-        plateau.deplacer(new Case(3, 4), new Case(3, 7));
+        try {
+            plateau.deplacer(new Case(3, 4), new Case(3, 7));
+        }catch (ErreurJeuException e) {}
 
         assertEquals(plateau.toString(),
                 "    a   b   c   d   e   f   g   h\n" +
                         "   --- --- --- --- --- --- --- ---\n" +
                         "8 |   |   |   |   |   |   |   |   | 8\n" +
                         "   --- --- --- --- --- --- --- ---\n" +
-                        "7 |   |   |   |   |   |   |   |   | 7\n" +
+                        "7 |   |   |   |   |   |   | C |   | 7\n" +
                         "   --- --- --- --- --- --- --- ---\n" +
                         "6 |   |   | R |   |   |   |   |   | 6\n" +
                         "   --- --- --- --- --- --- --- ---\n" +
@@ -114,30 +114,61 @@ public class TestPlateau {
     @Test
     public void testCopieProfondePlateau(){
         Plateau plateau = new Plateau();
-        plateau.ajouterPiece(new Roi(CouleurPiece.BLANC, new Case(2, 2)));
-        plateau.ajouterPiece(new Tour(CouleurPiece.NOIRE, new Case(3, 4)));
+        plateau.ajouterPiece(new Roi(Couleur.BLANC, new Case(2, 2)));
+        plateau.ajouterPiece(new Tour(Couleur.NOIR, new Case(3, 4)));
 
         Plateau plateauCopie = plateau.copieProfonde();
         IPiece roiCopie = plateauCopie.getPiece(new Case(2, 2));
         assertTrue(roiCopie.estCritique());
-        assertEquals(roiCopie.getCouleur(), CouleurPiece.BLANC);
+        assertEquals(roiCopie.getCouleur(), Couleur.BLANC);
         assertEquals(roiCopie.getPosition(), new Case(2, 2));
 
         IPiece tourCopie = plateauCopie.getPiece(new Case(3, 4));
         assertFalse(tourCopie.estCritique());
-        assertEquals(tourCopie.getCouleur(), CouleurPiece.NOIRE);
+        assertEquals(tourCopie.getCouleur(), Couleur.NOIR);
         assertEquals(tourCopie.getPosition(), new Case(3, 4));
 
         assertEquals(plateau.toString(), plateauCopie.toString());
 
         //on déplace les pièces
-        plateauCopie.deplacer(roiCopie.getPosition(), new Case(3, 2));
-        plateauCopie.deplacer(tourCopie.getPosition(), new Case(3, 7));
+        try {
+            plateauCopie.deplacer(roiCopie.getPosition(), new Case(3, 2));
+            plateauCopie.deplacer(tourCopie.getPosition(), new Case(3, 7));
+        }catch (ErreurJeuException e) {}
 
         assertEquals(roiCopie.getPosition(), new Case(3, 2));
         assertEquals(tourCopie.getPosition(), new Case(3, 7));
 
         //on compare le résultat grâce au toString
         assertNotEquals(plateau.toString(), plateauCopie.toString());
+    }
+
+    @Test
+    public void testPiecesMenacantes(){
+        Plateau plateau = new Plateau();
+        Roi roi = new Roi(Couleur.NOIR, new Case(2, 2));
+        Cavalier cavalier = new Cavalier(Couleur.BLANC, new Case(4, 3));
+        Tour tour = new Tour(Couleur.BLANC, new Case(5, 2));
+        Tour tourAlliee = new Tour(Couleur.NOIR, new Case(1, 2));
+
+        plateau.ajouterPiece(roi);
+        plateau.ajouterPiece(cavalier);
+        plateau.ajouterPiece(tour);
+        plateau.ajouterPiece(tourAlliee);
+
+        ArrayList<IPiece> piecesMenacantes = plateau.piecesMenacantes(roi);
+        assertEquals(piecesMenacantes.size(), 2);
+
+        try {
+            plateau.deplacer(cavalier.getPosition(), new Case(6, 4));
+        } catch (CaseInvalideException | PieceNonDeplacableException e) {
+            e.printStackTrace();
+        }
+
+        piecesMenacantes = plateau.piecesMenacantes(roi);
+        assertEquals(piecesMenacantes.size(), 1);
+
+        assertEquals(piecesMenacantes.get(0).getPosition(), new Case(5, 2));
+
     }
 }

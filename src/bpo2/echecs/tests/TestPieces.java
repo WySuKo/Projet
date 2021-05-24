@@ -1,7 +1,7 @@
 package bpo2.echecs.tests;
 
 import bpo2.echecs.jeu.Case;
-import bpo2.echecs.jeu.CouleurPiece;
+import bpo2.echecs.jeu.Couleur;
 import bpo2.echecs.pieces.Cavalier;
 import bpo2.echecs.pieces.Roi;
 import bpo2.echecs.pieces.Tour;
@@ -12,21 +12,21 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestPieces {
     @Test
     public void testCreationPieces(){
-        Roi roiBlanc = new Roi(CouleurPiece.BLANC, new Case(2, 2));
-        Tour tourNoire = new Tour(CouleurPiece.NOIRE, new Case(3, 4));
-        Cavalier cavalierBlanc = new Cavalier(CouleurPiece.BLANC, new Case(1, 6));
+        Roi roiBlanc = new Roi(Couleur.BLANC, new Case(2, 2));
+        Tour tourNoire = new Tour(Couleur.NOIR, new Case(3, 4));
+        Cavalier cavalierBlanc = new Cavalier(Couleur.BLANC, new Case(1, 6));
 
-        assertEquals(roiBlanc.getCouleur(), CouleurPiece.BLANC);
+        assertEquals(roiBlanc.getCouleur(), Couleur.BLANC);
         assertTrue(roiBlanc.estCritique());
         assertEquals(roiBlanc.getRepresentation(), 'R');
         assertEquals(roiBlanc.getPosition(), new Case(2, 2));
 
-        assertEquals(tourNoire.getCouleur(), CouleurPiece.NOIRE);
+        assertEquals(tourNoire.getCouleur(), Couleur.NOIR);
         assertFalse(tourNoire.estCritique());
         assertEquals(tourNoire.getRepresentation(), 't');
         assertEquals(tourNoire.getPosition(), new Case(3, 4));
 
-        assertEquals(cavalierBlanc.getCouleur(), CouleurPiece.BLANC);
+        assertEquals(cavalierBlanc.getCouleur(), Couleur.BLANC);
         assertFalse(cavalierBlanc.estCritique());
         assertEquals(cavalierBlanc.getRepresentation(), 'C');
         assertEquals(cavalierBlanc.getPosition(), new Case(1, 6));

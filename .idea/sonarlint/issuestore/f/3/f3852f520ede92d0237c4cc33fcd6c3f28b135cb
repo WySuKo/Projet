@@ -1,0 +1,23 @@
+
+‹
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ïåÉŞøÿÿÿÿ
+‹
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(½ÜÙªúÿÿÿÿ
+‹
+java:S1319*"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ƒğ üÿÿÿÿ
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ã˜6
++
+java:S1700	"Rename field "plateau"(“È¿+
+H
+java:S1135"2Complete the task associated to this TODO comment.(Úİ¸ø
+O
+java:S1117"":Rename "plateau" which hides the field declared at line 9.(æåŒm
+n
+java:S2737€"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û
+n
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÚŠ½Âúÿÿÿÿ
+R	java:S125’"<This block of commented-out lines of code should be removed.(¾Ê ë
+N
+java:S1135"2Complete the task associated to this TODO comment.(ÚŠ½Âúÿÿÿÿ
+3
+java:S1116Á"Remove this empty statement.(¿‡æ

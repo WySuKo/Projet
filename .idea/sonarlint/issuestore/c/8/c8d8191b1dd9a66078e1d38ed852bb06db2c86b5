@@ -1,0 +1,12 @@
+
+d
+java:S39735"GUse indentation to denote the code conditionally executed by this "if".(Äµ—É8û‰çà™/
+n	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(†°èî
+z	java:S135&"YReduce the total number of break and continue statements in this loop to use at most one.(•ö–ÿıÿÿÿÿ8¢Œãà™/
+u	java:S1350"YReduce the total number of break and continue statements in this loop to use at most one.(ãŸåø8¢Œãà™/
+u	java:S135:"YReduce the total number of break and continue statements in this loop to use at most one.(½º†‡8¢Œãà™/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ñÓÊ½ÿÿÿÿÿ
+¤
+java:S26817"†This line will not be executed conditionally; only the first line of this 2-line block will be. The rest will execute unconditionally.(¯ÀÚè8ü‰çà™/
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÛòÈÅ8¤Œãà™/

@@ -8,7 +8,7 @@ public interface IPiece {
     ArrayList<Case> deplacementsPossibles(Plateau plateau);
     char getRepresentation();
     boolean estCritique();
-    CouleurPiece getCouleur();
+    Couleur getCouleur();
     Case getPosition();
     IPiece copieProfonde();
 }

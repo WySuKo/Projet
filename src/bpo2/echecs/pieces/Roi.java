@@ -1,14 +1,14 @@
 package bpo2.echecs.pieces;
 
 import bpo2.echecs.jeu.Case;
-import bpo2.echecs.jeu.CouleurPiece;
+import bpo2.echecs.jeu.Couleur;
 import bpo2.echecs.jeu.IPiece;
 import bpo2.echecs.jeu.Plateau;
 
 import java.util.ArrayList;
 
 public class Roi extends Piece {
-    public Roi(CouleurPiece couleur, Case caseDepart) {
+    public Roi(Couleur couleur, Case caseDepart) {
         super(couleur,'r', caseDepart);
     }
 

@@ -1,0 +1,23 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ºÄğøûÿÿÿÿ
+d
+java:S1128"IRemove this unused import 'bpo2.echecs.exceptions.CaseInvalideException'.(¯¤†Æøÿÿÿÿ
+O
+java:S1128
+"4Remove this unused import 'bpo2.echecs.jeu.Couleur'.(§½˜»ûÿÿÿÿ
+G
+java:S1128"1Remove this unused import 'bpo2.echecs.jeu.Case'.(½ßÎÂ
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¹¸œ—
+M	java:S106"9Replace this use of System.out or System.err by a logger.(ŞÙ¯>
+N	java:S106$"9Replace this use of System.out or System.err by a logger.(«ÃÖ
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+S	java:S106)"9Replace this use of System.out or System.err by a logger.(Áİ˜ùÿÿÿÿ
+<	java:S1311""Add a default case to this switch.(ö˜í‚şÿÿÿÿ
+S	java:S106A"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+N	java:S106G"9Replace this use of System.out or System.err by a logger.(²»Â€
+S	java:S106K"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+N	java:S106Q"9Replace this use of System.out or System.err by a logger.(½ê±İ
+S	java:S106T"9Replace this use of System.out or System.err by a logger.(Úæúêøÿÿÿÿ
+S	java:S106W"9Replace this use of System.out or System.err by a logger.(Ï ÃÉıÿÿÿÿ

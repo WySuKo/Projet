@@ -12,7 +12,7 @@ public class Plateau {
     private final ArrayList<IPiece> piecesBlanches;
     private final ArrayList<IPiece> piecesNoires;
 
-    public Plateau() {
+    public Plateau() { //TODO fabrique de pièces + vérifier que 2 rois sont présents
         this.plateau = new IPiece [TAILLE][TAILLE];
         piecesBlanches = new ArrayList<>();
         piecesNoires = new ArrayList<>();
@@ -41,27 +41,35 @@ public class Plateau {
 
     public ArrayList<IPiece> piecesMenacantes(IPiece pieceMenacee){
         ArrayList<IPiece> pieces = new ArrayList<>();
-        return null; //TODO finir ici
+        ArrayList<IPiece> piecesEnnemies = pieceMenacee.getCouleur() == Couleur.BLANC ? piecesNoires : piecesBlanches;
+
+        for(IPiece piece : piecesEnnemies)
+            if(piece.deplacable(this, pieceMenacee.getPosition()))
+                pieces.add(piece);
+
+        return pieces;
     }
 
-    public void ajouterPiece(IPiece piece) throws CaseInvalideException {
+    public void ajouterPiece(IPiece piece) {
+        //La case est déjà vérifiée lors de l'appel
         Case destination = piece.getPosition();
-        if(!caseValide(destination))
-            throw new CaseInvalideException("Impossible d'ajouter la pièce à la case " + piece.getPosition().toString());
 
-        //TODO retirer la pièce si elle est déjà existante
+        if(getPiece(destination) != null)
+            retirerPiece(destination);
+
         plateau[destination.getX()][destination.getY()] = piece;
 
-        if(piece.getCouleur() == CouleurPiece.BLANC)
+        if(piece.getCouleur() == Couleur.BLANC)
             piecesBlanches.add(piece);
         else
             piecesNoires.add(piece);
     }
 
-    public void retirerPiece(Case source){ //TODO supprimer?
-        if(!caseValide(source)) return; //TODO exception
+    private void retirerPiece(Case source){
+        //Tout est vérifié avant l'appel
+
         IPiece piece = plateau[source.getX()][source.getY()];
-        if(piece.getCouleur() == CouleurPiece.BLANC)
+        if(piece.getCouleur() == Couleur.BLANC)
             piecesBlanches.remove(piece);
         else
             piecesNoires.remove(piece);
@@ -70,32 +78,32 @@ public class Plateau {
     }
 
     private void deplacerPiece(IPiece piece, Case caseArrivee) {
-        plateau[piece.getPosition().getX()][piece.getPosition().getY()] = null;
+        //Tout est vérifié avant l'appel
+        Case caseDepart = piece.getPosition();
+
+        plateau[caseDepart.getX()][caseDepart.getY()] = null;
+
+        if(caseOccupee(caseArrivee))
+            retirerPiece(caseArrivee);
+
         plateau[caseArrivee.getX()][caseArrivee.getY()] = piece;
         piece.deplacer(caseArrivee);
     }
 
-    public boolean deplacer(Case caseDepart, Case caseArrivee) throws CaseInvalideException, PieceNonDeplacableException {//TODO exceptions
-        if(!caseValide(caseDepart))
-            throw new CaseInvalideException("Erreur lors du déplacement d'une pièce: la case de départ " + caseDepart.toString() + "est invalide !");
-        if(!caseValide(caseArrivee))
-            throw new CaseInvalideException("Erreur lors du déplacement d'une pièce: la case d'arrivée " + caseArrivee.toString() + "est invalide !");
-
+    public void deplacer(Case caseDepart, Case caseArrivee) throws CaseInvalideException, PieceNonDeplacableException {
         IPiece pieceADeplacer = getPiece(caseDepart);
         if(pieceADeplacer == null){
-            throw new CaseInvalideException("Erreur lors du déplacement d'une pièce: la pièce voulue à la case " + caseDepart.toString() + "n'existe pas !");
+            throw new CaseInvalideException("Erreur lors du déplacement d'une pièce: la pièce à déplacer n'existe pas !");
         }
 
         if(!pieceADeplacer.deplacable(this, caseArrivee))
-            throw new PieceNonDeplacableException("Erreur lors du déplacement d'une pièce: la pièce n'est pas déplacable à la position " + caseArrivee + " !");
+            throw new PieceNonDeplacableException("Erreur lors du déplacement d'une pièce: la pièce n'est pas déplacable !");
 
         deplacerPiece(pieceADeplacer, caseArrivee);
-
-        return true;
     }
 
     public IPiece getPiece(Case source) {
-        if(!caseValide(source)) return null; //TODO exception
+        if(!caseValide(source)) return null;
         return plateau[source.getX()][source.getY()];
     }
 
@@ -103,37 +111,42 @@ public class Plateau {
         return plateau[source.getX()][source.getY()] != null;
     }
 
-    public IPiece getRoi(CouleurPiece couleurPiece){
-        ArrayList<IPiece> listeAChercher = couleurPiece == CouleurPiece.BLANC ? piecesBlanches : piecesNoires;
+    public IPiece getRoi(Couleur couleurPiece){
+        ArrayList<IPiece> listeAChercher = couleurPiece == Couleur.BLANC ? piecesBlanches : piecesNoires;
         for(IPiece piece : listeAChercher)
             if(piece.estCritique())
                 return piece;
         return null;
     }
 
-    public boolean echecApresDeplacement(CouleurPiece couleurRoiATester, Case caseDepart, Case caseDestination){
+    public boolean echecApresDeplacement(Couleur couleurRoiATester, Case caseDepart, Case caseDestination) throws CaseInvalideException, PieceNonDeplacableException{
         Plateau plateauCopie = this.copieProfonde();
-        plateauCopie.deplacer(caseDepart, caseDestination);
+
+        try {
+            plateauCopie.deplacer(caseDepart, caseDestination);
+        }catch (CaseInvalideException | PieceNonDeplacableException e){
+            throw e;
+        }
+
         return plateauCopie.echec(couleurRoiATester);
     }
 
-    public boolean echec(CouleurPiece couleur) {
+    public boolean echec(Couleur couleur) {
         IPiece roi = getRoi(couleur);
-        if(roi == null) return false; //TODO erreurs
 
-        ArrayList<IPiece> piecesATester = couleur == CouleurPiece.BLANC? piecesNoires : piecesBlanches;
-        for(IPiece piece :  piecesATester)
+        ArrayList<IPiece> piecesATester = couleur == Couleur.BLANC? piecesNoires : piecesBlanches;
+        for(IPiece piece : piecesATester)
             if(piece.deplacable(this, roi.getPosition()))
                 return true;
         return false;
     }
 
-    public boolean echecEtMat(CouleurPiece couleur) { //TODO à tester + exception
+    public boolean echecEtMat(Couleur couleur) { //TODO à tester + exception?
 
         //ArrayList<Case> caseEchecRoi = new ArrayList<>();
 
         //On récupère le roi que l'on souhaite tester
-        IPiece roi = getRoi(couleur); //TODO exception
+        IPiece roi = getRoi(couleur);
         ArrayList<Case> deplacementsRoi = roi.deplacementsPossibles(this);
 
         //pour sauver le roi de l'échec
@@ -157,8 +170,8 @@ public class Plateau {
 
             //protection
 
-        ArrayList<IPiece> piecesAdverses = couleur == CouleurPiece.BLANC? piecesNoires : piecesBlanches;
-        ArrayList<IPiece> piecesAlliees = couleur == CouleurPiece.BLANC? piecesBlanches : piecesNoires;
+        ArrayList<IPiece> piecesAdverses = couleur == Couleur.BLANC? piecesNoires : piecesBlanches;
+        ArrayList<IPiece> piecesAlliees = couleur == Couleur.BLANC? piecesBlanches : piecesNoires;
 
         ArrayList<IPiece> piecesDeplacablesCaseActuelle = new ArrayList<>();
 
@@ -172,10 +185,12 @@ public class Plateau {
         if(piecesDeplacablesCaseActuelle.size() == 1){
             Case positionPieceEnnemie = piecesDeplacablesCaseActuelle.get(0).getPosition();
             for(IPiece piece : piecesAlliees){
-                if(piece.deplacable(this, positionPieceEnnemie) && !echecApresDeplacement(couleur, piece.getPosition(), positionPieceEnnemie)){
-                    //la seule pièce qui menace le roi peut être mangée, le roi n'est pas en échec et mat
-                    return false;
-                }
+                try {
+                    if(piece.deplacable(this, positionPieceEnnemie) && !echecApresDeplacement(couleur, piece.getPosition(), positionPieceEnnemie)){
+                        //la seule pièce qui menace le roi peut être mangée, le roi n'est pas en échec et mat
+                        return false;
+                    }
+                } catch (CaseInvalideException | PieceNonDeplacableException e){;}
             }
         }
         piecesDeplacablesCaseActuelle.clear();

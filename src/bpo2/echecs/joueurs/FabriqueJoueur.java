@@ -1,6 +1,6 @@
 package bpo2.echecs.joueurs;
 
-import bpo2.echecs.jeu.CouleurPiece;
+import bpo2.echecs.jeu.Couleur;
 import bpo2.echecs.jeu.IFabriqueJoueur;
 import bpo2.echecs.jeu.IJoueur;
 
@@ -13,7 +13,7 @@ public class FabriqueJoueur implements IFabriqueJoueur {
         this.categorieSecondJoueur = categorieSecondJoueur;
     }
 
-    private IJoueur fabriquerJoueur(CategorieJoueur categorieJoueur, CouleurPiece couleurJoueur) {
+    private IJoueur fabriquerJoueur(CategorieJoueur categorieJoueur, Couleur couleurJoueur) {
         if(categorieJoueur == CategorieJoueur.AI)
             return new JoueurAI(couleurJoueur);
         else
@@ -22,11 +22,11 @@ public class FabriqueJoueur implements IFabriqueJoueur {
 
     @Override
     public IJoueur fabriquerPremierJoueur() {
-        return fabriquerJoueur(categoriePremierJoueur, CouleurPiece.BLANC);
+        return fabriquerJoueur(categoriePremierJoueur, Couleur.BLANC);
     }
 
     @Override
     public IJoueur fabriquerSecondJoueur(){
-        return fabriquerJoueur(categorieSecondJoueur, CouleurPiece.NOIRE);
+        return fabriquerJoueur(categorieSecondJoueur, Couleur.NOIR);
     }
 }

@@ -1,18 +1,18 @@
 package bpo2.echecs.pieces;
 
 import bpo2.echecs.jeu.Case;
-import bpo2.echecs.jeu.CouleurPiece;
+import bpo2.echecs.jeu.Couleur;
 import bpo2.echecs.jeu.IPiece;
 import bpo2.echecs.jeu.Plateau;
 
 public abstract class Piece implements IPiece {
     private final char caractere;
-    private final CouleurPiece couleur;
+    private final Couleur couleur;
     private Case caseActuelle;
 
-    public Piece(CouleurPiece couleur, char caractere, Case caseDepart){
+    public Piece(Couleur couleur, char caractere, Case caseDepart){
         this.couleur = couleur;
-        this.caractere = couleur == CouleurPiece.BLANC ? Character.toUpperCase(caractere) : caractere;
+        this.caractere = couleur == Couleur.BLANC ? Character.toUpperCase(caractere) : caractere;
         this.caseActuelle = caseDepart;
     }
 
@@ -21,7 +21,7 @@ public abstract class Piece implements IPiece {
     }
 
     @Override
-    public final CouleurPiece getCouleur() {
+    public final Couleur getCouleur() {
         return couleur;
     }
 

@@ -1,14 +1,14 @@
 package bpo2.echecs.pieces;
 
 import bpo2.echecs.jeu.Case;
-import bpo2.echecs.jeu.CouleurPiece;
+import bpo2.echecs.jeu.Couleur;
 import bpo2.echecs.jeu.IPiece;
 import bpo2.echecs.jeu.Plateau;
 
 import java.util.ArrayList;
 
 public class Tour extends Piece {
-    public Tour(CouleurPiece couleur, Case caseDepart) {
+    public Tour(Couleur couleur, Case caseDepart) {
         super(couleur,'t', caseDepart);
     }
 
@@ -30,6 +30,8 @@ public class Tour extends Piece {
             if(!super.deplacable(plateau, caseActuelle))
                 break;
             deplacements.add(caseActuelle);
+            if(plateau.caseOccupee(caseActuelle) && plateau.getPiece(caseActuelle).getCouleur() != getCouleur())
+                break;
             i++;
         }
         i = positionX - 1;
@@ -38,6 +40,8 @@ public class Tour extends Piece {
             if(!super.deplacable(plateau, caseActuelle))
                 break;
             deplacements.add(caseActuelle);
+            if(plateau.caseOccupee(caseActuelle) && plateau.getPiece(caseActuelle).getCouleur() != getCouleur())
+                break;
             i--;
         }
         int j = positionY + 1;
@@ -46,6 +50,8 @@ public class Tour extends Piece {
             if(!super.deplacable(plateau, caseActuelle))
                 break;
             deplacements.add(caseActuelle);
+            if(plateau.caseOccupee(caseActuelle) && plateau.getPiece(caseActuelle).getCouleur() != getCouleur())
+            break;
             j++;
         }
         j = positionY - 1;
@@ -54,6 +60,8 @@ public class Tour extends Piece {
             if(!super.deplacable(plateau, caseActuelle))
                 break;
             deplacements.add(caseActuelle);
+            if(plateau.caseOccupee(caseActuelle) && plateau.getPiece(caseActuelle).getCouleur() != getCouleur())
+                break;
             j--;
         }
 
