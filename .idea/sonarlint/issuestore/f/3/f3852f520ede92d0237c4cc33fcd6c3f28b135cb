@@ -14,10 +14,10 @@ O
 java:S1117"":Rename "plateau" which hides the field declared at line 9.(æåŒm
 n
 java:S2737€"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û
-n
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÚŠ½Âúÿÿÿÿ
+i
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ññÔÁ
 R	java:S125’"<This block of commented-out lines of code should be removed.(¾Ê ë
-N
-java:S1135"2Complete the task associated to this TODO comment.(ÚŠ½Âúÿÿÿÿ
+I
+java:S1135"2Complete the task associated to this TODO comment.(ññÔÁ
 3
 java:S1116Á"Remove this empty statement.(¿‡æ

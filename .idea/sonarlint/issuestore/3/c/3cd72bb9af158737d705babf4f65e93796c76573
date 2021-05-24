@@ -3,4 +3,4 @@ n	java:S120"ZRename this package name to match the regular expression '^[a-z_
 o
 java:S3776#"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(²‚Ü”8ú¨®ã™/
 n
-java:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û
+java:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û

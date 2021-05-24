@@ -37,8 +37,6 @@ _
 .src/bpo2/echecs/tests/TestDeplacementsRoi.java,d/9/d996c2124a4c9ba59fc3a343ae2bbd29ed9b222a
 c
 3src/bpo2/echecs/tests/TestDeplacementsCavalier.java,b/f/bf22fc58e05d3fe195f838713ec49f87d61a8e0a
-P
- src/bpo2/echecs/jeu/Plateau.java,f/3/f3852f520ede92d0237c4cc33fcd6c3f28b135cb
 M
 src/bpo2/echecs/jeu/Case.java,8/f/8f0ced35ca99bb665e23e99def148e5b1366df66
 L
@@ -49,25 +47,27 @@ Y
 )src/bpo2/echecs/joueurs/JoueurHumain.java,f/b/fb5da60da8ac4a2c676b32aed2f0d824bd15691f
 S
 #src/bpo2/echecs/joueurs/Joueur.java,a/4/a4b01828469214c4aade460a95a1e5448e66de11
-U
-%src/bpo2/echecs/joueurs/JoueurAI.java,8/4/84092e4b660ab870abe035cd60e384243a1d7b6a
 [
 +src/bpo2/echecs/joueurs/FabriqueJoueur.java,d/d/ddbdea55e45cabc6a43716809d1551bc5b278989
+B
+src/bpo2/Main.java,6/a/6ab757e9348c3fa74a876b8ebc61fa8f2b0f1fb0
+W
+'src/bpo2/echecs/jeu/IFabriquePiece.java,0/f/0f468cd196b69c8737f273d9b51191ae39197abb
+Y
+)src/bpo2/echecs/pieces/FabriquePiece.java,8/2/82bdfea7978da67b520f79e781d43f7df410dd61
+U
+%src/bpo2/echecs/pieces/TypePiece.java,a/4/a4afd6e4ebae84888c67d72562b027c4fb437119
 P
  src/bpo2/echecs/jeu/Couleur.java,7/2/7221a04151ad2dbe447a4849761b68861bcb70fa
 U
-%src/bpo2/echecs/pieces/TypePiece.java,a/4/a4afd6e4ebae84888c67d72562b027c4fb437119
-W
-'src/bpo2/echecs/jeu/IFabriquePiece.java,0/f/0f468cd196b69c8737f273d9b51191ae39197abb
-l
-<src/bpo2/echecs/exceptions/CreationRoiInvalideException.java,e/9/e9cf0f449f18b24f6a8d37b10d82fe30a9c174fe
-B
-src/bpo2/Main.java,6/a/6ab757e9348c3fa74a876b8ebc61fa8f2b0f1fb0
-Y
-)src/bpo2/echecs/pieces/FabriquePiece.java,8/2/82bdfea7978da67b520f79e781d43f7df410dd61
-O
-src/bpo2/echecs/jeu/Partie.java,3/c/3cd72bb9af158737d705babf4f65e93796c76573
+%src/bpo2/echecs/joueurs/JoueurAI.java,8/4/84092e4b660ab870abe035cd60e384243a1d7b6a
 ]
 -src/bpo2/echecs/tests/TestCreationPieces.java,6/4/6400bec23efea4720c3e53fd0bb333b2d294d3db
+l
+<src/bpo2/echecs/exceptions/CreationRoiInvalideException.java,e/9/e9cf0f449f18b24f6a8d37b10d82fe30a9c174fe
 V
 &src/bpo2/echecs/tests/TestPlateau.java,6/e/6eff162e9f8c118a828f9ea11986c7fdd746593c
+P
+ src/bpo2/echecs/jeu/Plateau.java,f/3/f3852f520ede92d0237c4cc33fcd6c3f28b135cb
+O
+src/bpo2/echecs/jeu/Partie.java,3/c/3cd72bb9af158737d705babf4f65e93796c76573

@@ -1,10 +1,10 @@
 
-y
-java:S1192E"cDefine a constant instead of duplicating this literal "    a   b   c   d   e   f   g   h
-" 4 times.(¶ÃòË
 {
 java:S1192F"eDefine a constant instead of duplicating this literal "   --- --- --- --- --- --- --- ---
 " 18 times.(õ‹
+y
+java:S1192E"cDefine a constant instead of duplicating this literal "    a   b   c   d   e   f   g   h
+" 4 times.(¶ÃòË
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(²†ô
 P
 java:S1854*";Remove this useless assignment to local variable "plateau".(æåŒm

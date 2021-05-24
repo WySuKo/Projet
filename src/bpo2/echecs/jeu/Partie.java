@@ -76,6 +76,11 @@ public class Partie {
         return joueurBlanc;
     }
 
+    /***
+     * @brief
+     * @param piece
+     * @throws CaseInvalideException
+     */
     public void ajouterPiece(IPiece piece) throws CaseInvalideException {
         if(!plateau.caseValide(piece.getPosition()))
             throw new CaseInvalideException("Impossible d'ajouter une pièce dans une case en-dehors du plateau !");
@@ -83,6 +88,10 @@ public class Partie {
         plateau.ajouterPiece(piece);
     }
 
+    /***
+     * @brief
+     * @return
+     */
     public int getNombreTours() {
         return nombreTours;
     }
@@ -91,6 +100,12 @@ public class Partie {
         return !abandon && !getPlateau().echecEtMat(joueurActif == joueurBlanc ? Couleur.BLANC : Couleur.NOIR) && !propositionNulleAcceptee && nombreTours != 300;
     }
 
+    /***
+     * @brief
+     * @throws FormatCoupInvalideException
+     * @throws PieceNonDeplacableException
+     * @throws CaseInvalideException
+     */
     public void jouerCoup() throws FormatCoupInvalideException, PieceNonDeplacableException, CaseInvalideException {
         String coup = joueurActif.obtenirCoup(plateau);
 
