@@ -1,25 +1,0 @@
-
-=
-java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä²¨î
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯ Çüÿÿÿÿ
-k	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èôàùÿÿÿÿ
-k	java:S117
-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œí¡ÿşÿÿÿÿ
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©Û“–8˜ÓÈ˜—/
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥Ã²8¢ÓÈ˜—/
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ğ´öŠûÿÿÿÿ
-J
-java:S6212"/Declare this local variable with "var" instead.(¸ØË¥ÿÿÿÿÿ
-E
-java:S6212"/Declare this local variable with "var" instead.(ä²¨î
-J
-java:S6212"/Declare this local variable with "var" instead.(¯ Çüÿÿÿÿ
-J
-java:S6212	"/Declare this local variable with "var" instead.(èôàùÿÿÿÿ
-J
-java:S6212
-"/Declare this local variable with "var" instead.(Œí¡ÿşÿÿÿÿ
-N	java:S106"9Replace this use of System.out or System.err by a logger.(²»Â€
-S	java:S106"9Replace this use of System.out or System.err by a logger.(›Äæ÷üÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(›Äæ÷üÿÿÿÿ
