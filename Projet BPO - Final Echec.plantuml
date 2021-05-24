@@ -1,0 +1,180 @@
+@startuml
+
+title __PROJET BPO - FINAL ECHEC's Class Diagram__\n
+
+  namespace bpo2 {
+    class bpo2.Main {
+    }
+  }
+  
+
+
+  
+
+  namespace bpo2 {
+    namespace echecs.jeu {
+      class bpo2.echecs.jeu.Case {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.jeu {
+      enum Couleur {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.jeu {
+      interface bpo2.echecs.jeu.IFabriqueJoueur {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.jeu {
+      interface bpo2.echecs.jeu.IFabriquePiece {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.jeu {
+      interface bpo2.echecs.jeu.IJoueur {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.jeu {
+      interface bpo2.echecs.jeu.IPiece {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.jeu {
+      class bpo2.echecs.jeu.Partie {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.jeu {
+      class bpo2.echecs.jeu.Plateau {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.joueurs {
+      enum CategorieJoueur {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.joueurs {
+      class bpo2.echecs.joueurs.FabriqueJoueur {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.joueurs {
+      abstract class bpo2.echecs.joueurs.Joueur {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.joueurs {
+      class bpo2.echecs.joueurs.JoueurAI {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.joueurs {
+      class bpo2.echecs.joueurs.JoueurHumain {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.pieces {
+      class bpo2.echecs.pieces.Cavalier {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.pieces {
+      class bpo2.echecs.pieces.FabriquePiece {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.pieces {
+      abstract class bpo2.echecs.pieces.Piece {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.pieces {
+      class bpo2.echecs.pieces.Roi {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.pieces {
+      class bpo2.echecs.pieces.Tour {
+      }
+    }
+  }
+  
+
+  namespace bpo2 {
+    namespace echecs.pieces {
+      enum TypePiece {
+      }
+    }
+  }
+
+  bpo2.echecs.joueurs.FabriqueJoueur .up.-|> bpo2.echecs.jeu.IFabriqueJoueu
+  bpo2.echecs.joueurs.Joueur .up.-|> bpo2.echecs.jeu.IJoueur
+  bpo2.echecs.joueurs.JoueurAI -up-|> bpo2.echecs.joueurs.Joueur
+  bpo2.echecs.joueurs.JoueurHumain -up-|> bpo2.echecs.joueurs.Joueur
+  bpo2.echecs.pieces.Cavalier -up-|> bpo2.echecs.pieces.Piece
+  bpo2.echecs.pieces.FabriquePiece .up.-|> bpo2.echecs.jeu.IFabriquePiece
+  bpo2.echecs.pieces.Piece .up.-|> bpo2.echecs.jeu.IPiece
+  bpo2.echecs.pieces.Roi -up-|> bpo2.echecs.pieces.Piece
+  bpo2.echecs.pieces.Tour -up-|> bpo2.echecs.pieces.Piece
+
+
+right footer
+
+endfooter
+
+@enduml
