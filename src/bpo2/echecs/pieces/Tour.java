@@ -7,17 +7,36 @@ import bpo2.echecs.jeu.Plateau;
 
 import java.util.ArrayList;
 
+/***
+ * Implémentation d'une tour
+ */
 public class Tour extends Piece {
+    /***
+     * Crée la tour
+     * @param couleur la couleur de la tour
+     * @param caseDepart la case de départ de la tour
+     */
     public Tour(Couleur couleur, Case caseDepart) {
         super(couleur,'t', caseDepart);
     }
 
+    /***
+     * Vérifie que la pièce est déplacable sur une case d'un plateau
+     * @param plateau le plateau sur lequel s'effectue le déplacement
+     * @param caseArrivee la case sur laquelle on teste le déplacement
+     * @return true si la pièce est déplacable, false sinon
+     */
     @Override
     public boolean deplacable(Plateau plateau, Case caseArrivee) {
         //On vérifie que la case sur laquelle on souhaite se déplacer est présente dans les déplacements possibles
         return deplacementsPossibles(plateau).contains(caseArrivee);
     }
 
+    /***
+     * Renvoie la liste des déplacements possibles de la pièce sur un plateau
+     * @param plateau le plateau sur lequel on cherche les déplacements
+     * @return la liste des déplacements possibles de la pièce sur un plateau
+     */
     @Override
     public ArrayList<Case> deplacementsPossibles(Plateau plateau) {
         ArrayList<Case> deplacements = new ArrayList<>();
@@ -68,8 +87,10 @@ public class Tour extends Piece {
         return deplacements;
     }
 
-
-
+    /***
+     * Effectue une copie profonde de la pièce
+     * @return la copie profonde de la pièce
+     */
     @Override
     public IPiece copieProfonde(){
         return new Tour(getCouleur(), getPosition());

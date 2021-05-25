@@ -1,18 +1,21 @@
 package bpo2;
 
-import bpo2.echecs.exceptions.CaseInvalideException;
-import bpo2.echecs.exceptions.CreationRoiInvalideException;
-import bpo2.echecs.jeu.Case;
+import bpo2.echecs.exceptions.CreationPlateauInvalideException;
+import bpo2.echecs.exceptions.ErreurJeuException;
 import bpo2.echecs.jeu.Partie;
 import bpo2.echecs.joueurs.CategorieJoueur;
 import bpo2.echecs.joueurs.FabriqueJoueur;
 import bpo2.echecs.pieces.*;
-import bpo2.echecs.jeu.Couleur;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    /***
+     * Méthode utilitaire qui permet de vérifier si un argument est présent dans une liste
+     * @param liste la liste dans laquelle chercher
+     * @param element l'élément à trouver
+     * @return true si l'élément est présent, false sinon
+     */
     public static boolean contient(String[] liste, String element){
         for(String elem : liste)
             if(elem.equals(element))
@@ -61,9 +64,9 @@ public class Main {
         Partie partie = null;
         try{
              partie = new Partie(new FabriqueJoueur(categorieJoueur1, categorieJoueur2), new FabriquePiece());
-        }catch (CreationRoiInvalideException e){
+        }catch (CreationPlateauInvalideException e){
             System.out.println(e);
-            //Avoir plus de 2 rois est invalide, donc on quitte le jeu
+            //Créer des pièces invalides ne permet pas de lancer le jeu; on quitte
             System.exit(0);
         }
 
@@ -71,7 +74,7 @@ public class Main {
             System.out.println(partie.getPlateau());
             try{
                 partie.jouerCoup();
-            }catch (Exception e){
+            }catch (ErreurJeuException e){
                 System.out.println(e);
             }
         }
@@ -80,11 +83,17 @@ public class Main {
             String joueurPerdant = partie.getJoueurActif() == partie.getJoueurBlanc()? "Blanc" : "Noir";
             System.out.println("Le joueur " + joueurPerdant + " a abandonné la partie !");
         }
-        if(partie.propositionNulleAcceptee()){
+        else if(partie.propositionNulleAcceptee()){
             System.out.println("La partie est déclarée nulle par les deux joueurs !");
         }
-        if(partie.getNombreTours() == 300){
+        else if(partie.getNombreTours() == 300){
             System.out.println("Egalité, la partie se termine car elle dure trop longtemps !");
+        }
+        else if(partie.duelDeRois()){
+            System.out.println("Egalite, un duel de Rois ne peut se terminer sur une victoire !");
+        }
+        else{
+            System.out.println("Echec et Mat !");
         }
     }
 }

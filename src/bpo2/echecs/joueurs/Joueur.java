@@ -3,14 +3,25 @@ package bpo2.echecs.joueurs;
 import bpo2.echecs.jeu.Couleur;
 import bpo2.echecs.jeu.IJoueur;
 
+/***
+ * Implémentation de fonctionnalités communes à un joueur (classe abstraite)
+ */
 public abstract class Joueur implements IJoueur {
-    private Couleur couleurPieces;
+    private Couleur couleur; //la couleur du joueur
 
-    public Joueur(Couleur couleurPieces){
-        this.couleurPieces = couleurPieces;
+    /***
+     * Crée un joueur
+     * @param couleur la couleur du joueur à créer
+     */
+    public Joueur(Couleur couleur){
+        this.couleur = couleur;
     }
 
-    public Couleur getCouleurJoueur(){
-        return couleurPieces;
+    /***
+     * Renvoie la couleur du joueur
+     * @return la couleur du joueur
+     */
+    public Couleur getCouleur(){
+        return couleur;
     }
 }

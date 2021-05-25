@@ -4,7 +4,7 @@ import bpo2.echecs.jeu.IFabriqueJoueur;
 import bpo2.echecs.jeu.IJoueur;
 import bpo2.echecs.joueurs.CategorieJoueur;
 import bpo2.echecs.joueurs.FabriqueJoueur;
-import bpo2.echecs.joueurs.JoueurAI;
+import bpo2.echecs.joueurs.JoueurIA;
 import bpo2.echecs.joueurs.JoueurHumain;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +18,6 @@ public class TestCreationJoueur {
         IJoueur joueur2 = fabriqueJoueur.fabriquerSecondJoueur();
 
         assertTrue(joueur1 instanceof JoueurHumain);
-        assertTrue(joueur2 instanceof JoueurAI);
+        assertTrue(joueur2 instanceof JoueurIA);
     }
 }

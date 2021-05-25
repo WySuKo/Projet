@@ -35,11 +35,33 @@ public class TestPlateau {
 
         assertEquals(plateau.getPiece(roi.getPosition()), roi);
         assertTrue(plateau.caseOccupee(roi.getPosition()));
+
+        //On teste l'ajout d'une pièce sur une case déjà occupée
+        Tour tour = new Tour(Couleur.BLANC, new Case(2, 2));
+        plateau.ajouterPiece(tour);
+
+        assertEquals(plateau.getPiecesBlanches().size(), 1);
+        assertTrue(plateau.getPiece(new Case(2, 2)) instanceof Tour);
     }
 
     @Test
     public void testDeplacementPiece(){
         Plateau plateau = new Plateau();
+        Roi roi = new Roi(Couleur.BLANC, new Case(2, 2));
+        plateau.ajouterPiece(roi);
+
+        try {
+            plateau.deplacer(new Case(2, 2), new Case(2, 3));
+        } catch (CaseInvalideException | PieceNonDeplacableException e) {
+            e.printStackTrace();
+        }
+
+        //On vérifie que la nouvelle case est bien occupée
+        assertTrue(plateau.caseOccupee(new Case(2, 3)));
+        //et que l'ancienne case est devenue libre
+        assertFalse(plateau.caseOccupee(new Case(2, 2)));
+        //et qu'il n'y a pas de doublon dans la liste des pièces
+        assertEquals(plateau.getPiecesBlanches().size(), 1);
     }
 
     @Test

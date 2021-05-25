@@ -44,7 +44,7 @@ public class TestEchecAuRoi {
         assertFalse(plateau.caseOccupee(new Case(6, 3)));
     }
 
-    static Plateau creationPlateau() {
+    public static Plateau creationPlateau() {
         Plateau plateau = new Plateau();
         plateau.ajouterPiece(new Roi(Couleur.BLANC, new Case(2, 2)));
         plateau.ajouterPiece(new Roi(Couleur.NOIR, new Case(7, 6)));

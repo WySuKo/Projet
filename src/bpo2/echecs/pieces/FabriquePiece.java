@@ -7,10 +7,15 @@ import bpo2.echecs.jeu.IPiece;
 
 import java.util.ArrayList;
 
+/***
+ * Implémentation d'une fabrique de pièces, utilisée pour la création d'une partie
+ */
 public class FabriquePiece implements IFabriquePiece {
     private ArrayList<IPiece> pieces;
-    private int numeroPieceActuelle;
 
+    /***
+     * Crée la fabrique de pièces
+     */
     public FabriquePiece(){
         pieces = new ArrayList<>();
 
@@ -20,17 +25,14 @@ public class FabriquePiece implements IFabriquePiece {
         pieces.add(new Tour(Couleur.NOIR, new Case(3, 3)));
         pieces.add(new Roi(Couleur.BLANC, new Case(4, 1)));
         pieces.add(new Cavalier(Couleur.NOIR, new Case(1, 2)));
-
-        numeroPieceActuelle = 0;
     }
 
-    public int getNombrePieces(){
-        return pieces.size();
-    }
-
-    public IPiece fabriquerPiece(){
-        IPiece piece = pieces.get(numeroPieceActuelle);
-        numeroPieceActuelle++;
-        return piece;
+    /***
+     * Renvoie les pièces à ajouter
+     * @return la liste des pièces à ajouter
+     */
+    @Override
+    public ArrayList<IPiece> fabriquerPieces(){
+        return pieces;
     }
 }

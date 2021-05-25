@@ -1,14 +1,10 @@
 
-{
-java:S1192F"eDefine a constant instead of duplicating this literal "   --- --- --- --- --- --- --- ---
-" 18 times.(υ‹
 y
-java:S1192E"cDefine a constant instead of duplicating this literal "    a   b   c   d   e   f   g   h
+java:S1192["cDefine a constant instead of duplicating this literal "    a   b   c   d   e   f   g   h
 " 4 times.(¶ΓςΛ
+‚
+java:S1192\"eDefine a constant instead of duplicating this literal "   --- --- --- --- --- --- --- ---
+" 18 times.(υ‹8‚ας™/
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(²†τ
-P
-java:S1854*";Remove this useless assignment to local variable "plateau".(ζεm
->	java:S108Z")Either remove or fill this block of code.(«έ¶§
-?	java:S108‰")Either remove or fill this block of code.(«έ¶§
-A
-java:S1481*",Remove this unused "plateau" local variable.(ζεm
+E	java:S108p")Either remove or fill this block of code.(«έ¶§8§ας™/
+F	java:S108")Either remove or fill this block of code.(«έ¶§8­ας™/
